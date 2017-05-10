@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context="com.example.android.javadevelopersinlagos.MainActivity">
 
     <TableLayout
@@ -30,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/listview_padding"
                 android:text="Hello World!" />
-
         </LinearLayout>
     </TableLayout>
 </ScrollView>
