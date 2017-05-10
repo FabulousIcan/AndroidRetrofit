@@ -1,9 +1,11 @@
 package com.example.android.javadevelopersinlagos;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class GitHubRepoAdapter extends ArrayAdapter<GitHubRepo> {
     private List<GitHubRepo> values;
 
     public GitHubRepoAdapter(Context context, List<GitHubRepo> values) {
-        super(context, R.layout.activity_main, values);
+        super(context, -1, values);
 
         this.context = context;
         this.values = values;
@@ -25,7 +27,13 @@ public class GitHubRepoAdapter extends ArrayAdapter<GitHubRepo> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        return row;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View rowView = inflater.inflate(R.layout.row_layout, parent, false);
+
+        TextView textView = (TextView) rowView.findViewById(R.id.name);
+        textView.setText(values.get(position).getName());
+
+        return rowView;
     }
 }
